@@ -65,7 +65,7 @@ pipeline {
 			oc new-app --as-deployment-config --name books nodejs:12~${APP_GIT_URL} \
 			--build-env npm_config_registry=${NEXUS_SERVER} \
 			--context-dir ${APP_NAME}
-			oc expose svc/${APP_NAME} i
+			oc expose svc/${APP_NAME}
 		   '''
             }
         }
@@ -130,7 +130,7 @@ pipeline {
 			oc project ${STAGE_PROJECT}
 			oc new-app --as-deployment-config --name books -i books:stage
 			oc expose svc/${APP_NAME}
-		   '''
+                   '''
             }
         }
 
